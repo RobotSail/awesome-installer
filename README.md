@@ -1,0 +1,2 @@
+# awesome-installer
+installer scripts
