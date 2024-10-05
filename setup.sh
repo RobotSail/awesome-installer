@@ -12,7 +12,7 @@ function install_zsh() {
 
 function enable_vim() {
     echo 'set -o vi' >> ~/.bash_profile
-    echo 'binkey -v' >> ~/.zshrc
+    echo 'bindkey -v' >> ~/.zshrc
 }
 
 function install_fun_editors() {
@@ -41,10 +41,10 @@ function install_fzf() {
 }
 
 function main() {
-    install_fun_editors
-    install_tmux
-    install_gh
-    install_zsh
+    # install_fun_editors
+    # install_tmux
+    # install_gh
+    # install_zsh
     enable_vim
     install_fzf
 
