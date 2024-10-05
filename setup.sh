@@ -41,10 +41,10 @@ function install_fzf() {
 }
 
 function main() {
-    # install_fun_editors
-    # install_tmux
-    # install_gh
-    # install_zsh
+    install_fun_editors
+    install_tmux
+    install_gh
+    install_zsh
     enable_vim
     install_fzf
 
