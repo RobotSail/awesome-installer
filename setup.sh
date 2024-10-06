@@ -13,6 +13,18 @@ function install_zsh() {
 function enable_vim() {
     echo 'set -o vi' >> ~/.bash_profile
     echo 'bindkey -v' >> ~/.zshrc
+
+    echo 'export GIT_EDITOR=vim' >> ~/.bashrc
+    echo 'export GIT_EDITOR=vim' >> ~/.zshrc
+
+    # set visual mode
+    echo 'export VISUAL=vim' >> ~/.bashrc
+    echo 'export EDITOR="${VISUAL}"'  >> ~/.bashrc
+    echo 'export VISUAL=vim' >> ~/.zshrc
+    echo 'export EDITOR="${VISUAL}"'  >> ~/.zshrc
+
+
+
 }
 
 function install_fun_editors() {
@@ -38,6 +50,20 @@ function install_gh() {
 function install_fzf() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --all 
+}
+
+
+
+########################################
+# Installs VSCode as a CLI - specific
+# to Fedora currently.
+########################################
+function install_vscode() {
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+    dnf check-update -y
+    sudo dnf install -y code # or code-insiders
+    # setup vscode server
 }
 
 function main() {
